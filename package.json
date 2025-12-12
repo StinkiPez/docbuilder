@@ -1,15 +1,16 @@
 {
-  "name": "docbuilder",
+  "name": "@DocBuilder",
+  "productName": "@DocBuilder",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
   "version": "1.0.0",
-  "description": "Templating tool for project and add service proposals.",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://codeberg.org/RA-Solutions/docbuilder.git"
-  },
   "author": "EXP",
-  "license": "ISC"
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "39.2.6"
+  }
 }

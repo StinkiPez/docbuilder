@@ -1,3 +1,5 @@
+node_modules
+out
 legacy-app
 quill-to-docx-example
-data
+.vscode
