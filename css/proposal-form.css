@@ -272,6 +272,33 @@
     opacity: 0.8;
 }
 
+/* Animations */
+@keyframes slideRightFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRightFadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+.slide-out-right {
+    animation: slideRightFadeOut 0.4s ease-in forwards;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .proposal-container {
