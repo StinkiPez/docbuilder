@@ -8,13 +8,14 @@
 </head>
 <body>
     <header class="app-header">
-        <button class="header-back-button">&#8249;</button>
-        <div class="header-logo">
+        <button class="header-close-button">&times;</button>
+        <button class="header-back-button hidden no-transition">&#8249;</button>
+        <div class="header-logo hidden no-transition">
             <img src="./img/ra.png" alt="Logo" />
         </div>
-        <span class="header-user-text">Welcome, {user}!</span>
+        <span class="header-user-text hidden no-transition">Welcome, {user}!</span>
     </header>
-    <div class="app-container"></div>
+    <div id="app-container"></div>
     <script src="./js/app.js"></script>
 </body>
 </html>
