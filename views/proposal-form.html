@@ -1,0 +1,189 @@
+<!-- Proposal Form View -->
+<link rel="stylesheet" type="text/css" href="../css/proposal-form.css" />
+<link href="../node_modules/quill/dist/quill.snow.css" rel="stylesheet">
+
+<div class="proposal-container">
+    <div class="proposal-header">
+        <h1>R&A Engineering Proposal Generator</h1>
+        <p>Fill out the form below to generate your proposal document</p>
+    </div>
+
+    <div class="form-content">
+        <div class="instructions">
+            <ul>
+                <li>Fill out all required fields</li>
+                <li>Select which scopes of service to include</li>
+                <li>Add phase breakdowns as needed</li>
+                <li>Click "Generate Proposal" to download your Word document</li>
+            </ul>
+        </div>
+
+        <form id="proposalForm">
+
+            <!-- Client Information -->
+            <div class="section">
+                <div class="section-title">Client Information</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <select id="clientSelect" tabindex="1">
+                            <option value="">-- Select company or enter manually --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select id="contactSelect" tabindex="2">
+                            <option value="">-- Select contact or enter manually --</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" id="firmName" required tabindex="3">
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Name</label>
+                        <input type="text" id="clientName" required tabindex="6">
+                    </div>
+                    <div class="form-group">
+                        <label>Address/Suite #</label>
+                        <input type="text" id="firmAddress" required tabindex="4">
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Title</label>
+                        <input type="text" id="clientTitle" required tabindex="7">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>City, State, ZIP</label>
+                        <input type="text" id="firmCityStateZip" required tabindex="5">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Information -->
+            <div class="section">
+                <div class="section-title">
+                    Project Information
+                    <button type="button" class="add-phase-btn" id="autofillBtn" style="float: right; margin-top: -5px;">Autofill Sample Data</button>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Project Name</label>
+                        <input type="text" id="projectName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Jurisdiction</label>
+                        <input type="text" id="jurisdiction" placeholder="e.g., HCAI, City of Sacramento">
+                    </div>
+                </div>
+                <div class="form-row single">
+                    <div class="form-group">
+                        <label>Project Summary</label>
+                        <div id="projectSummary" class="quill-editor"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Mechanical Summary</label>
+                        <div id="mechanicalSummary" class="quill-editor"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Plumbing Summary</label>
+                        <div id="plumbingSummary" class="quill-editor"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-Consultant Services -->
+            <div class="section">
+                <div class="section-title">Sub-Consultant Services</div>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="subNone" value="none" checked>
+                        <label for="subNone">None</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="subElectrical" value="electrical">
+                        <label for="subElectrical">Electrical</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="subFireSprinkler" value="fire_sprinkler">
+                        <label for="subFireSprinkler">Fire Sprinkler</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="subTestBalance" value="test_balance">
+                        <label for="subTestBalance">Test and Balance</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="subArchitectural" value="architectural">
+                        <label for="subArchitectural">Architectural</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="subStructural" value="structural">
+                        <label for="subStructural">Structural</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scope of Services -->
+            <div class="section">
+                <div class="section-title">Scope of Services (Select which sections to include)</div>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="scopeSchematic" value="schematic">
+                        <label for="scopeSchematic">Scoping/Schematic Design</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="scopeDD" value="dd">
+                        <label for="scopeDD">Design Development</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="scopeCD" value="cd">
+                        <label for="scopeCD">Construction Documents</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="scopeCA" value="ca">
+                        <label for="scopeCA">Construction Support</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase/Fee Breakdown -->
+            <div class="section">
+                <div class="section-title">Phases & Fees</div>
+                <table class="phases-table" id="phasesTable">
+                    <thead>
+                        <tr>
+                            <th>Phase Name-------------------------------</th>
+                            <th>Fee ($)----------------------------------</th>
+                            <th><button type="button" class="add-phase-btn" id="addPhaseBtn">+ Add Phase</button></th>
+                        </tr>
+                    </thead>
+                    <tbody id="phasesBody">
+                    </tbody>
+                </table>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label></label>
+                        <select id="feeType" required>
+                            <option value="">Select Fee Type</option>
+                            <option value="Hourly - NTE">Hourly - NTE</option>
+                            <option value="Percent Complete">Percent Complete</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <input type="text" id="totalFee" placeholder="$0" readonly required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Generate Proposal</button>
+        </form>
+    </div>
+</div>
+
+<script src="../js/proposal-form.js"></script>
