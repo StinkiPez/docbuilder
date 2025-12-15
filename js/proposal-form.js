@@ -1,5 +1,4 @@
-// Import required modules
-const Quill = require('quill');
+// Import required modules (Quill is loaded via script tag)
 const Docxtemplater = require('docxtemplater');
 const PizZip = require('pizzip');
 const { saveAs } = require('file-saver');
