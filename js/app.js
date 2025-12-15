@@ -64,8 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 if (userSelect.value) {
                     currentUser = userSelect.value;
+                    localStorage.setItem('currentUser', currentUser);
                     userText.textContent = `Welcome, ${currentUser}!`;
-                    
+
                     const loginContainer = document.querySelector('.login-container');
                     loginContainer.classList.add('slide-out-left');
                     loginContainer.addEventListener('animationend', () => {
@@ -73,6 +74,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     }, { once: true });
                 }
             });
+        } else if (viewName === 'dashboard') {
+            const proposalButton = document.querySelector('.dashboard-button:nth-child(1)');
+            if (proposalButton) {
+                proposalButton.addEventListener('click', () => {
+                    const dashboardContainer = document.querySelector('.dashboard-container');
+                    dashboardContainer.classList.add('slide-out-right');
+                    dashboardContainer.addEventListener('animationend', () => {
+                        loadView('proposal-form');
+                    }, { once: true });
+                });
+            }
         }
     }
 

@@ -1,0 +1,43 @@
+[
+  {
+    "name": "ABC Healthcare Corporation",
+    "address1": "123 Medical Plaza Drive, Suite 200",
+    "address2": "Sacramento, CA 95814",
+    "contacts": [
+      {
+        "name": "John Smith",
+        "title": "Director of Facilities"
+      },
+      {
+        "name": "Sarah Johnson",
+        "title": "Project Manager"
+      }
+    ]
+  },
+  {
+    "name": "XYZ Medical Group",
+    "address1": "456 Hospital Avenue",
+    "address2": "San Francisco, CA 94102",
+    "contacts": [
+      {
+        "name": "Michael Chen",
+        "title": "VP of Operations"
+      },
+      {
+        "name": "Lisa Wong",
+        "title": "Facilities Coordinator"
+      }
+    ]
+  },
+  {
+    "name": "Kaiser Permanente",
+    "address1": "One Kaiser Plaza",
+    "address2": "Oakland, CA 94612",
+    "contacts": [
+      {
+        "name": "Robert Davis",
+        "title": "Senior Project Manager"
+      }
+    ]
+  }
+]
